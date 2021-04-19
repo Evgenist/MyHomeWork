@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.Assert;
+
+import static org.testng.Assert.assertEquals;
 
 public class MyFirstTest {
 
@@ -34,11 +37,9 @@ public class MyFirstTest {
     public void WebDriverTest() {
         driver.get("https://otus.ru");
         logger.info("Сайт открыт");
-    }
-
-    @Test
-    public void WebDriverTitle() {
-        driver.getTitle();
         logger.info("Заголовок получен");
+        String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
+        String originalTitle = driver.getTitle();
+        Assert.assertEquals(originalTitle, expectedTitle);
     }
 }
