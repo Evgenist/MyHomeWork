@@ -16,25 +16,25 @@ public class MyFirstTest {
     protected static WebDriver driver;
 
     @Test
-    public void LogExample() {
+    public void logExample() {
         logger.info("Тест старт");
     }
 
     @BeforeMethod
-    public void StartUp() {
+    public void startUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         logger.info("Драйвер поднят");
     }
 
     @AfterMethod
-    public void End() {
+    public void end() {
         if (driver != null)
             driver.quit();
     }
 
     @Test
-    public void WebDriverTest() {
+    public void webDriverTest() {
         driver.get("https://otus.ru");
         logger.info("Сайт открыт");
         logger.info("Заголовок получен");
